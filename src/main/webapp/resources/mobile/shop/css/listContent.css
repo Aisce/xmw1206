@@ -1,0 +1,135 @@
+#listContent{
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+#listContent .left,#listContent .list,#listContent .right{
+	display: inline-block;
+	vertical-align: top;
+}
+#listContent .left{
+	width: 200px;
+	border: 1px solid #d3d3d3;
+}
+#listContent .left .title,#listContent .right .title{
+	color: #4289C7;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 8px 14px;
+}
+#listContent .right .title{
+	border: 1px solid #d3d3d3;
+}
+#listContent .left>div:not(.title){
+	border-bottom: 1px solid #d3d3d3;
+    padding: 12px;
+}
+#listContent .left>div:not(.title) img{
+	width: 100%;
+}
+#listContent .right>div:not(.title){
+	position: relative;
+	margin-bottom: 8px;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #d3d3d3;
+}
+#listContent .right>div:not(.title) img{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+#listContent .right>div:not(.title) div{
+	position: absolute;
+	bottom: 0;
+	background: rgba(0,0,0,.7);
+	color: white;
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	padding-left: 12px;
+	box-sizing: border-box;
+}
+
+#listContent .list{
+	margin: 0 0px;
+	width: 100%;
+}
+#listContent .list .search{
+	background: #F8F8F8;
+    border: 1px solid #d3d3d3;
+    padding: 6px;
+    box-sizing: border-box;
+    height: 46px;
+    line-height: 34px;
+}
+#listContent .list .search>span{
+	position: relative;
+    margin-right: 14px;
+    display: inline-block;
+    height: 34px;
+    vertical-align: middle;
+}
+#listContent .list .search>span img{
+	width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#listContent .list .search>span input{
+	padding-left: 24px;
+    width: 100%;
+    height: 32px;
+}
+#listContent .list .search>button{
+	border: none;
+    width: 56px;
+    height: 26px;
+    background: red;
+    margin-right: 4px;
+    color: white;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+#listContent .list .search>.searchBtn{
+	background: #1E8BCC;
+}
+#listContent .list .search>.resetBtn{
+	background: #FDA720;
+}
+
+#listContent .list ul{
+	
+}
+#listContent .list ul li{
+	padding: 10px;
+    border-bottom: 1px solid #d3d3d3;
+}
+#listContent .list ul li>div:first-child{
+	margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+#listContent .list ul li>div:first-child span{
+	font-weight: bold;
+}
+#listContent .list ul li>div:last-child{
+	color: gray;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#listContent .list ul li>div:last-child span{
+	color: black;
+    font-weight: bold;
+}
+
+#listContent .mainInfo textarea{
+	padding: 20px;
+    font-size: 14px;
+    width: 100%;
+}

@@ -1,0 +1,121 @@
+.marTop{
+				margin-top: 20px;
+			}
+			
+			#needForm{
+				padding: 20px;
+				
+				h3{
+					text-align: center;
+				}
+				
+				.listInfo{
+					.marTop;
+					
+					span{
+						display: inline-block;
+					    width: 49%;
+					    text-align: center;
+					    font-size: 14px;
+					}
+				}
+				
+				.mainInfo{
+					font-size: 0;
+					.marTop;
+					
+					.infoTitle{
+						font-weight: bold;
+					    vertical-align: top;
+					    width: 100%;
+					    font-size: 16px;
+					    margin-left: 5px;
+					}
+					
+					.main{
+						display: inline-block;
+					    width: 100%;
+					    margin-left: 4%;
+					    margin-top: 5px;
+						
+						>div:first-child{
+							font-size: 0;
+
+							span{
+								display: inline-block;
+								font-size: 14px;
+								width: 100%;
+								
+								&:not(:last-child){
+									margin-right: 4%;
+								}
+								
+								input{
+									width: calc(100% - 40px);
+								    float: right;
+								    border: none;
+								    border-bottom: 1px solid gray;
+									outline: none;
+									background: white;
+								}
+							}
+						}
+						
+						>div:last-child{
+							.marTop;
+							
+							span{
+								font-size: 14px;
+								
+								textarea{
+									 width: 100%;
+								    float: right;
+								    border: 1px solid gray;
+									outline: none;
+									background: white;
+									vertical-align:top;
+								}
+							}
+						}
+					}
+				}
+				
+				.detailedInfo{
+					font-size: 0;
+					.marTop;
+					
+					.infoTitle{
+						font-weight: bold;
+					    vertical-align: top;
+					    width: 100%;
+					    font-size: 16px;
+					    margin-left: 5px;
+					}
+					
+					.detailed{
+						display: inline-block;
+					    width: 100%;
+					    margin-left: 4%;
+					     margin-top: 5px;
+					    
+					    div{
+					    	min-height: 100px;
+    						border: 1px solid gray;
+    						font-size:14px;
+    						line-height: 20px;
+    						padding: 20px;
+    						box-sizing: border-box;
+					    }
+					    
+					    button{
+					    	margin-top: 20px;
+						    border: 1px solid #0A80C6;
+						    color: white;
+						    padding: 6px 10px;
+						    background: #1E8BCC;
+						    border-radius: 4px;
+						    cursor: pointer;
+					    }
+					}
+				}
+			}

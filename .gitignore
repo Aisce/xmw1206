@@ -1,0 +1,10 @@
+/.gradle/
+/build/
+/bin/main/net/
+/bin
+build/classes
+bin/main/
+/bin/
+/target/
+/.idea
+/.mvn

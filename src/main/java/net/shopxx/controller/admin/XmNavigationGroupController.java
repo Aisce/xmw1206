@@ -1,0 +1,111 @@
+/*
+ * Copyright 2008-2019 shopxx.net. All rights reserved.
+ * Support: http://www.shopxx.net
+ * License: http://www.shopxx.net/license
+ * FileId: dXIjfUsov4NJhrC4IX3BYOzegksqWX5g
+ */
+package net.shopxx.controller.admin;
+
+import javax.inject.Inject;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import net.shopxx.Pageable;
+import net.shopxx.Results;
+import net.shopxx.entity.NavigationGroup;
+import net.shopxx.entity.XmNavigationGroup;
+import net.shopxx.service.NavigationGroupService;
+import net.shopxx.service.XmNavigationGroupService;
+
+/**
+ * Controller - 导航组
+ * 
+ * @author SHOP++ Team
+ * @version 6.1
+ */
+@Controller("adminXmNavigationGroupController")
+@RequestMapping("/admin/xm_navigation_group")
+public class XmNavigationGroupController extends BaseController {
+
+	@Inject
+	private XmNavigationGroupService navigationGroupService;
+
+	/**
+	 * 添加
+	 */
+	@GetMapping("/add")
+	public String navigationGroupd(ModelMap model) {
+		return "admin/xm_navigation_group/add";
+	}
+
+	/**
+	 * 保存
+	 */
+	@PostMapping("/save")
+	public ResponseEntity<?> save(XmNavigationGroup navigationGroup) {
+		if (!isValid(navigationGroup)) {
+			return Results.UNPROCESSABLE_ENTITY;
+		}
+		navigationGroup.setNavigations(null);
+		navigationGroupService.save(navigationGroup);
+		return Results.OK;
+	}
+
+	/**
+	 * 编辑
+	 */
+	@GetMapping("/edit")
+	public String edit(Long id, ModelMap model) {
+		model.addAttribute("navigationGroup", navigationGroupService.find(id));
+		return "admin/xm_navigation_group/edit";
+	}
+
+	/**
+	 * 更新
+	 */
+	@PostMapping("/update")
+	public ResponseEntity<?> update(XmNavigationGroup navigationGroup, Long navigationGroupId) {
+		if (!isValid(navigationGroup)) {
+			return Results.UNPROCESSABLE_ENTITY;
+		}
+		navigationGroupService.update(navigationGroup, "navigations");
+		return Results.OK;
+	}
+
+	/**
+	 * 列表
+	 */
+	@GetMapping("/list")
+	public String list(Pageable pageable, ModelMap model) {
+		model.addAttribute("page", navigationGroupService.findPage(pageable));
+		return "admin/xm_navigation_group/list";
+	}
+
+	/**
+	 * 删除
+	 */
+	@PostMapping("/delete")
+	public ResponseEntity<?> delete(Long[] ids) {
+		
+		if(ids!=null) {
+			//查看导航组下面是否存在分类
+			for(int i = 0;i < ids.length;i++) {
+				XmNavigationGroup find = navigationGroupService.find(ids[i]);
+				if(find.getNavigations().size()>0) {
+					return Results.UNPROCESSABLE_ENTITY1;
+				}else {
+					navigationGroupService.delete(ids[i]);
+				}
+			}
+			return Results.OK;
+		}else {
+			return Results.UNPROCESSABLE_ENTITY;
+		}
+	}
+
+}
